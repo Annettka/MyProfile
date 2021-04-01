@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyProfile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="anna">Anna Zenevich</string>
+    <string name="android_developer">Android developer</string>
+</resources>
