@@ -1,27 +1,47 @@
 package by.it.academy.myprofile
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : AppCompatActivity(), MainInterface {
+
+    private val viewModel: ProfileModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val bottomNavView = findViewById<BottomNavigationView>(R.id.bottomNavView)
-        bottomNavView.background = null
-        bottomNavView.menu.getItem(2).isEnabled = false
 
-        setCurrentFragment(ProfileFragment())
+        initFragment()
+    }
+
+    private fun initFragment() {
+        setCurrentFragment(ProfileFragment(viewModel))
     }
 
     private fun setCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
+            setCustomAnimations(
+                R.anim.slide_from_right,
+                R.anim.slide_to_left,
+                R.anim.slide_from_left,
+                R.anim.slide_to_right
+            )
             replace(R.id.fragment_container, fragment)
+            addToBackStack(null)
             commit()
         }
+    }
+
+    override fun openProfileFragment() {
+        setCurrentFragment(ProfileFragment(viewModel))
+    }
+
+    override fun openPostFragment() {
+        setCurrentFragment(PostFragment(viewModel))
+
+
     }
 }

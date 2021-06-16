@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:orientation="horizontal"
+    android:layout_marginVertical="18dp">
+
+    <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="2dp"
+        app:cardCornerRadius="42dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/white">
+
+        <ImageView
+            android:id="@+id/comment_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/peter_parker" />
+    </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Peter Parker"
+            android:layout_marginBottom="8dp"
+            android:textAppearance="@style/TextAppearance_Post_Subtitle1"
+            android:textColor="@color/light_grey"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Beautiful"
+            android:textAppearance="@style/TextAppearance_Post_Subtitle1" />
+
+    </LinearLayout>
+
+</LinearLayout>
